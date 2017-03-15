@@ -1,5 +1,3 @@
-#qllib_path=../qllib
-
 all: ql
 
 ql: multiAgents.o
