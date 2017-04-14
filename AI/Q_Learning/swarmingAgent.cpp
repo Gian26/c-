@@ -7,6 +7,20 @@
 #include "multiAgents.h"
 
 
+/*
+
+  REWARD = STATE
+        {
+           ACTIONS
+           POSITION
+         }
+
+  Q(s,a) = r(s,a) + alpha * max(Q(s`,a`))
+
+  movimiento echo por agentes
+  posición en mundo de cada agente
+
+*/
 
 /// ALGORITMO Q-LEARNING
 const int _SIZEOFSWARM = 3;
@@ -361,9 +375,12 @@ int main(int argc, char const *argv[]) {
               //Calculate Q
               float actualQ = mundo.getQVector()[_currentState][_currentAction];
               float nextQ = mundo.getQVector()[_nextState][_nextAction];
-              actualQ += (_alpha *(_reward + _gamma * (nextQ - actualQ) ) );
+              //sarsa RULE
+              //actualQ += (_alpha *(_reward + _gamma * (nextQ - actualQ) ) );
+              //QLearning RULE
+              actualQ += reward + _gamma * nextQ;
               // printf(" %f += %f  * %f (%f-%f)\n",actualQ,_alpha,_gamma,nextQ,actualQ );
-              mundo.setQ(_currentState,_currentAction,actualQ);
+              mundo.setQ(_currentState,_currentAction,actualQ);//SAVE VALUE TO WORLD ACTION
 
               swarm[agent].setCurrentState(_nextState);
               // swarm[agent]=actualAgent;
