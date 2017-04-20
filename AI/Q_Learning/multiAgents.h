@@ -19,12 +19,14 @@ class GridWorld{
   protected:
     const unsigned short len;
     const unsigned short wid;
+    const unsigned short numStates;
+    const unsigned short numActions;
     vector<CellSpaces> grid;
     vector<vector<float> >  q_global;
 
 
   public:
-    GridWorld(const unsigned short _len,const unsigned short _wid);
+    GridWorld(const unsigned short _len,const unsigned short _wid,const unsigned short _numActions );
     double randomNumbers();
     vector<CellSpaces> getWorld();
     unsigned short getLen();
