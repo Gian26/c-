@@ -1,15 +1,15 @@
 
-ql: main_ql_multiagents.o multiAgents.o
-	g++ main_ql_multiagents.o multiAgents.o -o ql
+qlswarm: mainSwarmingAgents.o swarmingAgents.o
+	g++ mainSwarmingAgents.o swarmingAgents.o -o qlswarm
 
-main_ql_multiagents.o: main_ql_multiagents.cpp
-	g++ -c main_ql_multiagents.cpp
+mainSwarmingAgents.o: mainSwarmingAgents.cpp
+	g++ -std=c++11 -c mainSwarmingAgents.cpp
 
-multiAgents.o: multiAgents.cpp multiAgents.h
-	g++ -c multiAgents.cpp
+swarmingAgents.o: swarmingAgents.cpp swarmingAgents.h
+	g++ -std=c++11 -c swarmingAgents.cpp
 
 #ql.o: $(qllib_path)/ql.cpp
 #	g++ -c $(qllib_path)/ql.cpp
 
 clean:
-	rm -rf *.o ql
+	rm -rf *.o qlswarm

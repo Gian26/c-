@@ -57,7 +57,6 @@ void GridWorld::printQ() const
 		cout << endl << i+1 << " : \t";
 		for(unsigned short j=0; j<numActions; j++)
 		{
-			cout << q_global[i][j] << " ";
 		}
 	}
 	cout << endl;

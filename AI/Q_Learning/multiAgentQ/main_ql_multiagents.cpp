@@ -154,7 +154,6 @@ int main(int argc, char const *argv[]) {
         }
       }
 
-  mundo.printQ();
 
   // printf("%lu, State %d\n",flagAgents.size(),swarm[0].getCurrentState());
 // DO TEST
@@ -184,7 +183,7 @@ printf("\n");
               _nextState = _currentState;
           }
           //mundo.setCellState(_nextState,OCCUPIED);
-          cout<< "Agent "<<agent << "),  step " << step+1 << ")\t" << _currentState << "\t | \t " << _currentAction << "\t | \t " << _nextState <<  "\t | \t "<< _reward<<endl;
+          cout<< "Agent "<<agent << "),  step " << step+1 << ")\t" << _currentState << "\t | \t " << _currentAction << "\t | \t " << _nextState <<  "\t | \t "<< _reward<< "\t | \t "<< mundo.getQVector()[_currentState][_currentAction]<<endl;
 
           swarm[agent].setCurrentState(_nextState);
         //  printf("NEW STATE %d, GOAL STATE %d, result %d \n",swarm[agent].getCurrentState(),swarm[agent].getGoalState(),swarm[agent].getCurrentState() == swarm[agent].getGoalState());
@@ -200,5 +199,6 @@ printf("\n");
       }
   }
 
+    mundo.printQ();
   return 0;
 }
